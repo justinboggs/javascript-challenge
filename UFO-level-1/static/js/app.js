@@ -55,16 +55,46 @@ tableData.forEach(function(ufoReport) {
     });
 });
 
-// Getting a reference to the button on the page with the id property set to `filter-btn`
-var button = d3.select("filter-btn");
+// Select the button
+var button = d3.select("#filter-btn");
 
-// Getting a reference to the input element on the page with the id property set to 'input-field'
-var inputField = d3.select("#input-field");
+button.on("click", function () {
 
-// This function is triggered when the button is clicked
-function handleClick() {
-    console.log("A button was clicked!");
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#datetime");
 
-    // We can use d3 to see the object that dispatched the event
-    console.log(d3.event.target);
-}
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
+
+    console.log(inputValue);
+    console.log(tableData);
+
+    var filteredData = tableData.filter(report => tableData.datetime === inputValue);
+
+    console.log(filteredData);
+
+    // BONUS: Calculate summary statistics for the age field of the filtered data
+
+    // // First, create an array with just the age values
+    // var ages = filteredData.map(person => person.age);
+
+    // // Next, use math.js to calculate the mean, median, mode, var, and std of the ages
+    // var mean = math.mean(ages);
+    // var median = math.median(ages);
+    // var mode = math.mode(ages);
+    // var variance = math.var(ages);
+    // var standardDeviation = math.std(ages);
+
+    // // Then, select the unordered list element by class name
+    // var list = d3.select(".summary");
+
+    // // remove any children from the list to
+    // list.html("");
+
+    // // append stats to the list
+    // list.append("li").text(`Mean: ${mean}`);
+    // list.append("li").text(`Median: ${median}`);
+    // list.append("li").text(`Mode: ${mode}`);
+    // list.append("li").text(`Variance: ${variance}`);
+    // list.append("li").text(`Standard Deviation: ${standardDeviation}`);
+});
