@@ -4,9 +4,7 @@ var tableData = data;
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
-// Console.log the weather data from data.js
-// console.log(tableData);
-
+// build the function to loop through and append the data to a table
 function tableBuild(data) {
     tbody.html("");
     // Step 1: Loop Through `data` and console.log each ufo report object
@@ -35,8 +33,9 @@ function dtfilter() {
     tableBuild(filteredData);
 };
 
-
+// Attach to the 
 d3.selectAll("#filter-btn").on("click", dtfilter);
 
+// Build the table on page load
 tableBuild(tableData);
 
