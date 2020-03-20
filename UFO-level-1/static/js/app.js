@@ -6,16 +6,14 @@ var tbody = d3.select("tbody");
 
 // build the function to loop through and append the data to a table
 function tableBuild(data) {
+    // clear out existing data
     tbody.html("");
-    // Step 1: Loop Through `data` and console.log each ufo report object
+    // loop through each object in the data and append row and cells for each value
     data.forEach((dataRow) => {
-        // console.log(data);
-        // Step 2:  Use d3 to append one table row `tr` for each ufo report object
+        // append the row to the table body
         const row = tbody.append("tr");
         Object.values(dataRow).forEach((val) => {
-            // console.log(key, value);
-            // Append a cell to the row for each value
-            // in the ufo report object
+            // look through the row in the dataRow and add each value to the table data
             let cell = row.append("td");
             cell.html(val);
         });
@@ -23,19 +21,23 @@ function tableBuild(data) {
 
 };
 
+// create filter function
 function dtfilter() {
+    // collect the datetime value from the filter
     const justin = d3.select("#datetime").property("value");
-    // 
     let filteredData = tableData; 
+    // filter the data using the entered date
     if (justin) {
+        // keep the rows in the table that match the filter value
         filteredData = filteredData.filter(row => row.datetime === justin)
     };
+    // build the table using filtered data
     tableBuild(filteredData);
 };
 
-// Attach to the 
+// listen for the button click
 d3.selectAll("#filter-btn").on("click", dtfilter);
 
-// Build the table on page load
+// build the table on page load
 tableBuild(tableData);
 
