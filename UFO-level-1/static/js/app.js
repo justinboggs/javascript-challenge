@@ -17,7 +17,7 @@ function tableBuild(data) {
             // Append a cell to the row for each value
             // in the ufo report object
             let cell = row.append("td");
-            cell.text(val);
+            cell.html(val);
         });
     });
 
