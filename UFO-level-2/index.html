@@ -12,7 +12,7 @@
 
 <body>
   <div class="wrapper">
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="index.html">UFO Sightings
@@ -36,8 +36,12 @@
                   <div class="form-group">
                     <ul class="list-group" id="filters">
                       <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
-                        <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                        <label for="date">Search Table</label>
+                        <input class="form-control" id="datetime" type="text" placeholder="date">
+                        <input class="form-control" id="city" type="text" placeholder="city">
+                        <input class="form-control" id="state" type="text" placeholder="state">
+                        <input class="form-control" id="country" type="text" placeholder="country">
+                        <input class="form-control" id="shape" type="text" placeholder="shape">
                       </li>
                     </ul>
                   </div>
@@ -68,7 +72,7 @@
       </div>
     </div>
     <footer class="footer">
-      <span class="bottom">UFO Sightings</span>
+      <span class="bottom">UFO Sightings &copy; <a href="mailto:jboggs1@gmail.com">Justin Boggs</a> 2020</span>
     </footer>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>

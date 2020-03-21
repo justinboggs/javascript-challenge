@@ -40,4 +40,3 @@ d3.selectAll("#filter-btn").on("click", dtfilter);
 
 // build the table on page load
 tableBuild(tableData);
-
