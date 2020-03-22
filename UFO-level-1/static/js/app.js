@@ -31,6 +31,8 @@ function dtfilter() {
         // keep the rows in the table that match the filter value
         filteredData = filteredData.filter(row => row.datetime === justin)
     };
+    // prevent the page from reloading
+    d3.event.preventDefault();
     // build the table using filtered data
     tableBuild(filteredData);
 };
